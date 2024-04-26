@@ -1,0 +1,11 @@
+site_name: Git Básico
+
+nav:
+  - Inicio: 'index.md'
+  - Pasos iniciales:
+    - Crear un repositorio: 'Cómo crear un repositorio de github.md'
+    - Inicio de sesión: 'Inicio de sesion.md'
+    - Autenticación SSH: 'Autenticación ssh.md'
+    - Vinculación: 'Vincular un repositorio remoto.md'
+    - Operaciones básicas: 'Git commit y push.md'
+  - Recursos: 'Recursos.md'
