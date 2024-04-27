@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Crear un repositorio - Git Básico</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">Git Básico</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href=".." class="nav-link">Inicio</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Pasos iniciales</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">Crear un repositorio</a>
+</li>
+                                    
+<li>
+    <a href="../Inicio%20de%20sesion/" class="dropdown-item">Inicio de sesión</a>
+</li>
+                                    
+<li>
+    <a href="../Autenticaci%C3%B3n%20ssh/" class="dropdown-item">Autenticación SSH</a>
+</li>
+                                    
+<li>
+    <a href="../Vincular%20un%20repositorio%20remoto/" class="dropdown-item">Vinculación</a>
+</li>
+                                    
+<li>
+    <a href="../Git%20commit%20y%20push/" class="dropdown-item">Operaciones básicas</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../Recursos/" class="nav-link">Recursos</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href=".." class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../Inicio%20de%20sesion/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#creando-un-repositorio" class="nav-link">Creando un repositorio</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#crear-el-repositorio" class="nav-link">Crear el repositorio</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#repositorio-publico-o-privado" class="nav-link">Repositorio público o privado</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#el-archivo-readmemd" class="nav-link">El archivo README.md</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#el-archivo-gitignore-y-la-licencia" class="nav-link">El archivo .gitignore y la licencia</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#el-repositorio-ha-sido-creado" class="nav-link">El repositorio ha sido creado</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="creando-un-repositorio">Creando un repositorio</h1>
+<p>Si bien puedes llevar un control de tu proyecto en local, dentro de tu equipo, con la ayuda de git, no puedes "empujar" (hacer push) desde tu equipo hacia github directamente, deberás crear un nuevo repositorio desde la interfaz web de github (indicando nombre, si debe incluir un .gitignore y si vas a incluir un archivo README).</p>
+<h2 id="crear-el-repositorio">Crear el repositorio</h2>
+<p>Para crear un nuevo repositorio, podemos hacerlo desde la página principal de github entrando en:</p>
+<p><img alt="ubicación del botón de nuevo repositorio" src="../img/donde-crear-un-nuevo-repositorio.jpeg" /></p>
+<p>Después de dar click en "New" o "Nuevo", seremos direccionados a la siguiente pantalla:</p>
+<p><img alt="configura tu nuevo repositorio" src="../img/configuracion-nuevo-repositorio.jpeg" /></p>
+<p>Lo primero será escoger el nombre del repositorio, el cual github verificará que no se encuentra ya en uso, puesto que te asignará una URL. Puedes agregarle una breve descripción (lo que es opcional), que sirve para que las personas, al ingresar (o en el buscador) puedan tener una noción rápida de lo que trata tu proyecto.</p>
+<h2 id="repositorio-publico-o-privado">Repositorio público o privado</h2>
+<p>Lo siguiente es escoger si el repositorio será público (accesible para todo el mundo) o privado (tu escoges quiénes pueden ver el repositorio, aunque solo podrán si esas personas tienen también una cuenta de github).</p>
+<h2 id="el-archivo-readmemd">El archivo README.md</h2>
+<p>El siguiente parámetro es el archivo README. Este es un archivo de markdown en el que agregamos una descripción más detallada y concisa del funcionamiento de nuestro proyecto, la información que pueda ser necesaria y el cómo usarlo, etc. Eres libre de colocar aquí la información que consideres útil y requerida.</p>
+<h2 id="el-archivo-gitignore-y-la-licencia">El archivo .gitignore y la licencia</h2>
+<p>El archivo .gitignore es para listar los archivos o directorios que quieres que git ignore cuando realices un push (cuando envíes los archivos desde tu equipo hacia el repositorio de github).</p>
+<p>Y por últim, la licencia se refiere al tipo de licencia de uso que va a tener tu código.</p>
+<h2 id="el-repositorio-ha-sido-creado">El repositorio ha sido creado</h2>
+<p>Una vez verificados todos estos criterios, solo le damos click en donde dice <strong>Create repository</strong>, y pasaremos a una ventana como esta:</p>
+<p><img alt="ventana de repositorio creado" src="../img/repositorio-creado.jpeg" /></p>
+<p>En ella podemos ver dónde y cómo vincular nuestro repositorio con nuestro proyecto en local. El método recomendado para estas clases es mediante ssh.</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

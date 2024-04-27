@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Autenticación SSH - Git Básico</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">Git Básico</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href=".." class="nav-link">Inicio</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Pasos iniciales</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../C%C3%B3mo%20crear%20un%20repositorio%20de%20github/" class="dropdown-item">Crear un repositorio</a>
+</li>
+                                    
+<li>
+    <a href="../Inicio%20de%20sesion/" class="dropdown-item">Inicio de sesión</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">Autenticación SSH</a>
+</li>
+                                    
+<li>
+    <a href="../Vincular%20un%20repositorio%20remoto/" class="dropdown-item">Vinculación</a>
+</li>
+                                    
+<li>
+    <a href="../Git%20commit%20y%20push/" class="dropdown-item">Operaciones básicas</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../Recursos/" class="nav-link">Recursos</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../Inicio%20de%20sesion/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../Vincular%20un%20repositorio%20remoto/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#autenticacion-con-ssh" class="nav-link">Autenticación con SSH</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#creando-el-directorio" class="nav-link">Creando el directorio</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#generacion-de-la-clave-publica-y-privada" class="nav-link">Generación de la clave pública y privada</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#vinculacion-mediante-ssh-con-la-cuenta-de-github" class="nav-link">Vinculación mediante ssh con la cuenta de Github</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="autenticacion-con-ssh">Autenticación con SSH</h1>
+<p>Al instalar git, lo primero que debemos hacer es abrir la terminal de Git Bash. Una vez en ella, debemos inicializar Git, lo que podemos hacer con:</p>
+<pre><code>git init
+</code></pre>
+<p>Este comando inicializará git y creara, en un primer momento, un repositorio vacío en el directorio en donde estemos ubicado. El término "git" nos indica que ingresaremos un comando de Git, mientras que "init" inicializa Git en ese directorio.</p>
+<h2 id="creando-el-directorio">Creando el directorio</h2>
+<p>Lo siguiente, es crear las claves y elementos necesarios para conectarnos vía SSH (Protocolo Secure Shell), pueden consultar más información al respecto en la documentación <a href="https://docs.github.com/es/authentication/connecting-to-github-with-ssh/about-ssh" title="Documentación de Github sobre SSH">oficial de Github</a>. Para generar estas claves, debemos cerciorarnos de que en la carpeta del sistema tenemos un directorio llamado ".ssh"; si no lo tenemos, podemos crearlo y movernos a él con:</p>
+<pre><code>mkdir .ssh
+cd .ssh
+</code></pre>
+<p>El término "mkdir" crea un directorio desde la terminal bash, mientras que el término "cd" nos mueve al directorio cuyo nombre escribamos. En concreto, secreó un directorio llamado "ssh" (el punto indica que es una carpeta oculta) y nos movimos dentro de dicho directorio.</p>
+<h2 id="generacion-de-la-clave-publica-y-privada">Generación de la clave pública y privada</h2>
+<p>Una vez dentro, y siguiendo la documentación de Git y Github, debemos tipear:</p>
+<pre><code>ssh-keygen -t ed25519 -C &quot;your_email@example.com&quot;
+</code></pre>
+<p>"ssh-keygen" es el comando principal, nos indica que generaremos un par de claves ssh, que se compone de una clave pública y una privada.</p>
+<p>Por su parte, la "-t" nos habla del tipo de algoritmo de cifrado que usaremos, así que una vez agregado el parámetro "-t", debemos indicarle en su argumento qué cifrado queremos.</p>
+<p>Ahú es donde entra el término "ed25519", que hace referencia al algoritmo de firma digital de curva de Edwards (EdDSA), el mecanismo de encriptación que se emplea más a menudo en la actualidad y el recomendado. Si el sistema no admite dicho mecanismo, puede probarse también con:</p>
+<pre><code>ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot;
+</code></pre>
+<p>El parámetro "-C" solo nos indica que podemos agregar un comentario. El comentario se incluye en la clave pública y se puede usar para identificar la clave. En este caso, el comentario se establece como tu dirección de correo electrónico.</p>
+<p>Al ejecutar este comando, se te pedirá que introduzcas una frase de contraseña dos veces. La frase de contraseña es opcional, pero se recomienda usarla para agregar una capa adicional de seguridad a tus claves. En caso de no colocarla, no te preocupes, pero eso sí: si decides usar una frase de contraseña, asegúrate de que sea algo que puedas recordar fácilmente, pero que sea difícil de adivinar para otras personas.</p>
+<p>Ten en cuenta que, una vez generadas las claves, estas se guardarán en un archivo que, habitualmente, lleba el nombre del algoritmo de cifrado (aunque si te lo pregunta, puedes cambiarlo). Se generarán dos archivos, uno contendrá la clave privada y otro la clave pública, este último tendrá una extensión .pub (que en Windows puede confundirse con los archivos de Publisher de la suite de Office). Ingresa en el archivo con la terminación ".pub" (de pública), ábrelo con el blog de notas y copia su contenido.</p>
+<h2 id="vinculacion-mediante-ssh-con-la-cuenta-de-github">Vinculación mediante ssh con la cuenta de Github</h2>
+<p>Lo que has copiado es el hash de la clave pública, el cual deberás copiar dentro de tu cuenta de git. Para ello dirígiete a tu foto de perfil, haz click en ella y busca "configuración" o "settings" hacia la parte baja del menú:</p>
+<p><img alt="configuración de git" src="../img/config-git.jpeg" /></p>
+<p>Una vez en nuestra página de configuración, en la barra de navegación de la izquierda deberemos buscar la sección "Access", o de acceso, y localizar en ella "SSH and GPG keys". Damos click allí.</p>
+<p><img alt="configuración ssh y gpg" src="../img/ssh-gpg-keys.jpeg" /></p>
+<p>Una vez dentro del nuevo panel, debemos dar click donde dice "New SSH key":</p>
+<p><img alt="agregar una nueva ssh" src="../img/configuracion-clave-ssh.jpeg" /></p>
+<p>El resultado será una página como esta:</p>
+<p><img alt="campo para agregar la clave pública de ssh" src="../img/campo-para-nueva-ssh.jpeg" /></p>
+<p>En el título podemos poner el nombre de nuestra conveniencia, puede ser uno que nos sirva para identificar el dispositivo desde el cual estamos conectándonos (al instalar git en un dispositivo diferente y querer conectarlo con nuestro repositorio de Github, debemos generar una clave ssh nueva, sin necesidad de borrar la anterior). No tocaremos el campo "Key type", y en donde dice key, pegaremos el contenido que hemos copiado del documento .pub que generamos previamente.</p>
+<p>De esta forma hemos terminado de configurar nuestro git local para que pueda comunicarse con los repositorios que creemos en nuestra cuenta de Github.</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
