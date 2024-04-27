@@ -2,17 +2,17 @@
 
 En el mundo del desarrollo de software, donde la innovación corre a pasos agigantados, la organización y el control del código fuente son esenciales para el éxito. Es aquí donde entra en juego Git, una herramienta indispensable que se ha convertido en el estándar de oro para la gestión de versiones.
 
-Este site contiene notas de trabajo y estudio desarrolladas para las clases de Ingeniería en Telecomunicaciones de la UNEFA Extensión Bejuma. A medida que el semestre vaya avanzando, serán agregadas más notas y contenidos.
+Este site contiene notas de trabajo y estudio desarrolladas para las clases de **Ingeniería en Telecomunicaciones**git add de la **UNEFA Extensión Bejuma**. A medida que el semestre vaya avanzando, serán agregadas más notas y contenidos.
 
 ## Estructura de esta página
 
 De momento, las notas estructuradas desde clase tienen los siguientes contenidos:
 
-1. [Cómo crear un repositorio](entries/Cómo%20crear%20un%20repositorio%20de%20github.md)
-2. [inicio de sesión en git](entries/Inicio%20de%20sesion.md)
-3. [Autenticación ssh](entries/Autenticación%20ssh.md)
-4. [Vinculación de un repositorio remoto](entries/Vincular%20un%20repositorio%20remoto.md)
-5. [Operaciones básicas con git: `add`, `commit` y `push`](entries/Git%20commit%20y%20push.md)
+1. [Cómo crear un repositorio](Cómo%20crear%20un%20repositorio%20de%20github.md)
+2. [inicio de sesión en git](Inicio%20de%20sesion.md)
+3. [Autenticación ssh](Autenticación%20ssh.md)
+4. [Vinculación de un repositorio remoto](Vincular%20un%20repositorio%20remoto.md)
+5. [Operaciones básicas con git: `add`, `commit` y `push`](Git%20commit%20y%20push.md)
 
 Este mismo contenido puede accederse desde el menú superior, en la sección **Pasos iniciales**. También puede leerse en orden, desplazándose mediante los botones *Next* y *Previous* en la esquina superior derecha.
 
