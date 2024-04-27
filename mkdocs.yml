@@ -1,4 +1,18 @@
 site_name: Git Básico
+site_description: Sitio web para las notas de clases sobre Git, de la Unefa Extensión Bejuma.
+site_author: Gabriel Baute, Ingeniero en Telecomunicaciones y docente en el departamento de ingeniería en la Unefa Extensión Bejuma.
+
+theme:
+  name: material
+  language: es
+  logo: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQV6xlWm5Am8VBW5ocxlqiHf27EbZZX-jcreYW_eSB9zA&s
+  features:
+    - navigation.instant
+    - navigation.instant.progress
+    - search.suggest
+    - navigation.footer
+
+repo_url: https://github.com/gabrielbaute/notas-de-git
 
 nav:
   - Inicio: 'index.md'
