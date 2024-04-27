@@ -20,20 +20,20 @@ Este mismo contenido puede accederse desde el menú superior, en la sección **P
 
 Git es un sistema de control de versiones distribuido, lo que significa que mantiene un registro detallado de todos los cambios realizados en un proyecto de software. Funciona como un historial extenso que te permite:
 
-* Retroceder en el tiempo: Si algo no funciona como se esperaba, puedes volver a una versión anterior del código sin perder el trabajo realizado.
-* Colaborar de forma eficiente: Múltiples desarrolladores pueden trabajar en el mismo proyecto de forma simultánea, sin conflictos ni confusiones.
-* Realizar un seguimiento del progreso: Se puede observar cómo ha evolucionado el código a lo largo del tiempo, identificando quién hizo qué y cuándo.
-* Experimentar sin miedo: Las ramas permiten crear copias del código para realizar pruebas o experimentos sin afectar la versión principal.
+* **Retroceder en el tiempo:** Si algo no funciona como se esperaba, puedes volver a una versión anterior del código sin perder el trabajo realizado.
+* **Colaborar de forma eficiente:** Múltiples desarrolladores pueden trabajar en el mismo proyecto de forma simultánea, sin conflictos ni confusiones.
+* **Realizar un seguimiento del progreso:** Se puede observar cómo ha evolucionado el código a lo largo del tiempo, identificando quién hizo qué y cuándo.
+* **Experimentar sin miedo:** Las ramas permiten crear copias del código para realizar pruebas o experimentos sin afectar la versión principal.
 
 ### ¿Por qué es tan importante Git?
 
 Las ventajas de utilizar Git en el desarrollo de software son numerosas:
 
-* Mejora la calidad del código: Al tener un registro detallado de los cambios, se facilita la identificación y corrección de errores.
-* Aumenta la productividad: La colaboración fluida y la posibilidad de volver a versiones anteriores ahorran tiempo y esfuerzo.
-* Facilita la comunicación: El historial de Git proporciona un contexto claro para comprender los cambios realizados.
+* **Mejora la calidad del código:** Al tener un registro detallado de los cambios, se facilita la identificación y corrección de errores.
+* **Aumenta la productividad:** La colaboración fluida y la posibilidad de volver a versiones anteriores ahorran tiempo y esfuerzo.
+* **Facilita la comunicación:** El historial de Git proporciona un contexto claro para comprender los cambios realizados.
 Protege el código fuente: Git ofrece opciones de seguridad para resguardar el código contra accesos no autorizados.
-* Promueve la transparencia: Todos los desarrolladores tienen acceso al historial de cambios, lo que fomenta la confianza y la colaboración abierta.
+* **Promueve la transparencia:** Todos los desarrolladores tienen acceso al historial de cambios, lo que fomenta la confianza y la colaboración abierta.
 
 ### ¿Cuán utilizado es Git?
 
@@ -43,10 +43,10 @@ La adopción de Git a nivel mundial es abrumadora. Según la encuesta de desarro
 
 Si bien Git es el líder indiscutible, existen otras opciones de control de versiones disponibles:
 
-* Subversion: Un sistema más antiguo que Git, pero aún utilizado en algunos proyectos.
-* Mercurial: Similar a Git en muchos aspectos, pero con una filosofía de desarrollo diferente.
-* Fossil: Un sistema ligero y portátil, ideal para proyectos pequeños.
-* Bazaar: Un sistema de control de versiones distribuido con un enfoque en la facilidad de uso.
+* **Subversion:** Un sistema más antiguo que Git, pero aún utilizado en algunos proyectos.
+* **Mercurial:** Similar a Git en muchos aspectos, pero con una filosofía de desarrollo diferente.
+* **Fossil:** Un sistema ligero y portátil, ideal para proyectos pequeños.
+* **Bazaar:** Un sistema de control de versiones distribuido con un enfoque en la facilidad de uso.
 
 En conclusión, Git se ha convertido en una herramienta indispensable para los desarrolladores de software, ofreciendo un sinfín de beneficios para la gestión de versiones, la colaboración y la calidad del código. Su amplia adopción y versatilidad lo convierten en la piedra angular del desarrollo de software moderno.
 

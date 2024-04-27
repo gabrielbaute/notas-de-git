@@ -5,7 +5,7 @@ Al instalar git, lo primero que debemos hacer es abrir la terminal de Git Bash. 
 ```
 git init
 ```
-Este comando inicializará git y creara, en un primer momento, un repositorio vacío en el directorio en donde estemos ubicado. El término "git" nos indica que ingresaremos un comando de Git, mientras que "init" inicializa Git en ese directorio.
+Este comando inicializará git y creara, en un primer momento, un repositorio vacío en el directorio en donde estemos ubicado. El término `git` nos indica que ingresaremos un comando de Git, mientras que `init` inicializa Git en ese directorio.
 
 ## Creando el directorio
 
@@ -16,7 +16,7 @@ mkdir .ssh
 cd .ssh
 ```
 
-El término "mkdir" crea un directorio desde la terminal bash, mientras que el término "cd" nos mueve al directorio cuyo nombre escribamos. En concreto, secreó un directorio llamado "ssh" (el punto indica que es una carpeta oculta) y nos movimos dentro de dicho directorio.
+El término `mkdir` crea un directorio desde la terminal bash, mientras que el término `cd` nos mueve al directorio cuyo nombre escribamos. En concreto, secreó un directorio llamado "ssh" (el punto indica que es una carpeta oculta) y nos movimos dentro de dicho directorio.
 
 
 ## Generación de la clave pública y privada
@@ -27,16 +27,16 @@ Una vez dentro, y siguiendo la documentación de Git y Github, debemos tipear:
 ssh-keygen -t ed25519 -C "your_email@example.com"
 ```
 
-"ssh-keygen" es el comando principal, nos indica que generaremos un par de claves ssh, que se compone de una clave pública y una privada.
+`ssh-keygen` es el comando principal, nos indica que generaremos un par de claves ssh, que se compone de una clave pública y una privada.
 
-Por su parte, la "-t" nos habla del tipo de algoritmo de cifrado que usaremos, así que una vez agregado el parámetro "-t", debemos indicarle en su argumento qué cifrado queremos.
+Por su parte, la `-t` nos habla del tipo de algoritmo de cifrado que usaremos, así que una vez agregado el parámetro `-t`, debemos indicarle en su argumento qué cifrado queremos.
 
-Ahú es donde entra el término "ed25519", que hace referencia al algoritmo de firma digital de curva de Edwards (EdDSA), el mecanismo de encriptación que se emplea más a menudo en la actualidad y el recomendado. Si el sistema no admite dicho mecanismo, puede probarse también con:
+Ahú es donde entra el término `ed25519`, que hace referencia al algoritmo de firma digital de curva de Edwards (EdDSA), el mecanismo de encriptación que se emplea más a menudo en la actualidad y el recomendado. Si el sistema no admite dicho mecanismo, puede probarse también con:
 
 ```
 ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 ```
-El parámetro "-C" solo nos indica que podemos agregar un comentario. El comentario se incluye en la clave pública y se puede usar para identificar la clave. En este caso, el comentario se establece como tu dirección de correo electrónico.
+El parámetro `-C` solo nos indica que podemos agregar un comentario. El comentario se incluye en la clave pública y se puede usar para identificar la clave. En este caso, el comentario se establece como tu dirección de correo electrónico.
 
 Al ejecutar este comando, se te pedirá que introduzcas una frase de contraseña dos veces. La frase de contraseña es opcional, pero se recomienda usarla para agregar una capa adicional de seguridad a tus claves. En caso de no colocarla, no te preocupes, pero eso sí: si decides usar una frase de contraseña, asegúrate de que sea algo que puedas recordar fácilmente, pero que sea difícil de adivinar para otras personas.
 
